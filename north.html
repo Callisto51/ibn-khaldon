@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ar" class="scroll-smooth" dir="rtl">
+    <head>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VX8800SCCC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-VX8800SCCC');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Arabic">
+    <title>التنوع التراثي السعودي</title>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/colorbox.css">
+    <script src="js/lightbox.js" defer=""></script>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/gsap.min.js" defer=""></script>
+    <script src="js/ScrollTrigger.min.js" defer=""></script>
+    <script src="js/ScrollToPlugin.min.js" defer=""></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
+    <link rel="stylesheet" href="css/tailwind_v%3D1.03.css">
+  </head>
+  <body class="font-harir">
+    <style>
+      .dropdown:hover .guides-list {
+        display: block;
+      }
+    </style>
+    <header class="fixed top-0 left-0 z-[60] w-full bg-fdBrownTp" id="header">
+
+      <div id="mobileMenu" class="fixed top-0 left-0 w-0 h-screen overflow-hidden duration-500 overlay lg:hidden">
+        <div class="w-full overlay-content bg-fdBrownTp2">
+          <p href="javascript:void(0)" class="absolute text-6xl text-white closeBtn right-10 top-10" onclick="closeNav()">×</p>
+          <div class="flex flex-col items-center justify-center h-screen space-y-6 text-3xl font-bold text-fdCream">
+
+            <div class="relative inline-block dropdown">
+              <a class="flex items-center guidesBtn">
+                <span>المنطقة الشمالية</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between p-4 lg:hidden">
+        <a href="/" class="w-44">
+          <img src="https://media.discordapp.net/attachments/687379731435618318/1159883937133383851/image.png?width=75&height=75" alt="">
+        </a>
+        <button onclick="openNav()">
+          <img src="assets/img/nav-icon.png" alt="" class="w-8">
+        </button>
+      </div>
+      <div class="container items-center justify-between hidden mx-auto lg:flex">
+        <a href="/" class="w-1/6">
+          <img src="https://media.discordapp.net/attachments/687379731435618318/1159883937133383851/image.png?width=75&height=75" alt="">
+        </a>
+        <div class="items-center justify-start hidden h-24 py-4 mx-auto lg:flex">
+          <ul class="flex items-center space-x-16 space-x-reverse list-none cursor-pointer select-none text-fdCream ">
+            <div class="relative inline-block dropdown">
+              <a class="flex items-center text-xl select-none guidesBtn">
+                <span>المنطقة الشمالية</span>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!--<div id="preloader">
+      <div class="loader absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+        <img src="assets/img/sss.png" alt="" class="transition animate-spin origin-center w-32 h-32" style="animation: spin 3s linear infinite;">
+      </div>
+    </div>-->
+
+    <style>
+      #story {
+        overflow: hidden;
+      }
+
+      .transition-fade2 {
+        opacity: 1;
+        transition: 500ms;
+        transform: translateX(0);
+        transform-origin: left;
+      }
+
+      @keyframes entrance {
+        0% {
+          opacity: 0;
+          transform: translateY(-250px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(0);
+        }
+
+        30% {
+          transform: translateY(100px);
+        }
+      }
+
+      svg #wheel {
+        animation: scroll ease 1.5s infinite;
+      }
+
+      body::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      .body {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function() {
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        (function() {
+          const blurProperty = gsap.utils.checkPrefix("filter"),
+            blurExp = /blur\((.+)?px\)/,
+            getBlurMatch = target => (gsap.getProperty(target, blurProperty) || "").match(blurExp) || [];
+          gsap.registerPlugin({
+            name: "blur",
+            get(target) {
+              return +(getBlurMatch(target)[1]) || 0;
+            },
+            init(target, endValue) {
+              let data = this,
+                filter = gsap.getProperty(target, blurProperty),
+                endBlur = "blur(" + endValue + "px)",
+                match = getBlurMatch(target)[0],
+                index;
+              if (filter === "none") {
+                filter = "";
+              }
+              if (match) {
+                index = filter.indexOf(match);
+                endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
+              } else {
+                endValue = filter + endBlur;
+                filter += filter ? " blur(0px)" : "blur(0px)";
+              }
+              data.target = target;
+              data.interp = gsap.utils.interpolate(filter, endValue);
+            },
+            render(progress, data) {
+              data.target.style[blurProperty] = data.interp(progress);
+            }
+          });
+        })();
+        let screenWidth = screen.width;
+        let screenHeight = screen.height;
+        const tl = gsap.timeline().from("#foreground", {
+          duration: 5,
+        }, 'foreGround').from("#our-story", {
+          duration: 2,
+        }, "<").to("#our-story", {
+          opacity: 0,
+          y: -300,
+          duration: 5,
+        }, 'foreGround+=5', 'ourStoryOut').from("#intro-text", {
+          delay: 0,
+          opacity: 0,
+          scale: 0,
+          y: -300,
+          duration: 5,
+        }, "<", 'introTextIn').from("#cloud-left", {
+          opacity: 0,
+          x: 300,
+          ease: "power2.out",
+          duration: 20,
+        }, "<").to("#cloud-left", {
+          x: -300,
+          duration: 20,
+        }, 'foreGround-=5', ).from("#cloud-right", {
+          opacity: 0,
+          x: -300,
+          ease: "power2.out",
+          duration: 5,
+        }, "<").to("#cloud-right", {
+          x: 300,
+          duration: 20,
+        }, 'foreGround-=5', ).from("#cloud-center", {
+          opacity: 0,
+          y: 300,
+          ease: "power2.out",
+          duration: 5,
+        }, "<").to("#cloud-center", {
+          opacity: 0,
+          y: -300,
+          ease: "power2.out",
+          duration: 20,
+        }, 'foreGround-=5', ).to("#intro-text", {
+          delay: 0,
+          opacity: 0,
+          y: -300,
+          duration: 1,
+        }, 'introTextIn+=5', 'introTextOut').to("#foreground", {
+          height: "1443px",
+          opacity: 0,
+          duration: 10,
+          ease: "Power1.easeIn",
+        }, 'introTextOut', 'slideOneOut').from("#foreground2", {
+          opacity: 0,
+          y: 600,
+          scale: 3,
+          duration: 7,
+        }, 'slideOneOut-=8', 'foreGround2Enter').to(["#cloud-left", "#cloud-right", "#cloud-center"], {
+          y: -300,
+          opacity: 0,
+          duration: 1,
+        }, 'foreGround2Enter-=2').from("#intro-text2", {
+          opacity: 0,
+          y: -300,
+          duration: 1,
+        }, 'foreGround2Enter-=3', 'introText2Enter').from("#camels", {
+          opacity: 0,
+          x: -screenWidth,
+          ease: "power2.out",
+          duration: 5,
+        }, 'foreGround2Enter-=3', 'camelsEnter').to("#intro-text2", {
+          opacity: 0,
+          y: -300,
+          duration: 2,
+        }, 'introText2Enter+=7', 'introText2Exit').to("#foreground2", {
+          x: -screenWidth,
+          duration: 4,
+        }, 'introText2Exit-=3', 'foreGround2Exit').from("#foreground2right", {
+          x: screenWidth,
+          duration: 4,
+        }, '<', 'foreGround2RightEnter').to("#camels", {
+          /*x: -screenWidth,*/
+          opacity: 0,
+          duration: 2,
+          ease: "power2.out",
+        }, 'introText2Exit-=2', 'camelsExit').from("#intro-text2-2", {
+          opacity: 0,
+          x: screenWidth,
+          duration: 2,
+        }, 'foreGround2RightEnter-=1', 'introText2-2Enter').to("#intro-text2-2", {
+          opacity: 0,
+          x: screenWidth,
+          duration: 3,
+        }, 'introText2-2Enter+=7', 'intro2-2Exit').to("#foreground2right", {
+          opacity: 0,
+          duration: 5,
+          x: -300,
+        }, 'intro2-2Exit-=1', 'foreGround2RightExit').fromTo("#birds", {
+          x: screenWidth,
+        }, {
+          x: -screenWidth,
+          duration: 10,
+        }, 'introText2-2Enter-=2', ).from("#foreground3", {
+          opacity: 0,
+          x: screenWidth,
+          duration: 3,
+          delay: 0.5,
+        }, 'foreGround2RightExit-=5', 'foreGround3Enter').from("#foreground3Mobile", {
+          opacity: 0,
+          x: screenWidth,
+          duration: 3,
+          delay: 0.5,
+        }, 'foreGround2RightExit-=5', 'foreGround3Enter').from("#oldman", {
+          scale: 3,
+          opacity: 1,
+          x: screenWidth + 1000,
+          duration: 3,
+        }, 'foreGround2RightExit-=5', 'oldmanEnter').from("#oldmanMobile", {
+          scale: 1,
+          opacity: 1,
+          x: -screenWidth,
+          duration: 3,
+        }, 'foreGround2RightExit-=5', 'oldmanEnter').fromTo("#palm-trees", {
+          opacity: 1,
+          x: screenWidth + 1500,
+          y: "50%",
+          scale: 3,
+        }, {
+          scale: 3,
+          opacity: 1,
+          x: -screenWidth,
+          duration: 3,
+          y: "50%",
+        }, 'intro2-2Exit-=2', 'palmTreesExit', ).from("#intro-text3", {
+          opacity: 0,
+          x: screenWidth,
+          duration: 2,
+        }, 'foreGround3Enter-=1', 'introTextThreeEnter').to("#intro-text3", {
+          opacity: 0,
+          x: -screenWidth,
+          duration: 3,
+        }, 'introText3Enter+=4', 'introText3Exit').to("#foreground3", {
+          x: -screenWidth,
+          duration: 4,
+        }, 'introText3Exit-=3', 'foreGround3Exit').to("#foreground3Mobile", {
+          x: -screenWidth,
+          duration: 4,
+        }, 'introText3Exit-=3', 'foreGround3Exit').to("#oldman", {
+          x: -screenWidth,
+          duration: 3,
+        }, '<', 'oldmanExit').to("#oldmanMobile", {
+          x: -screenWidth,
+          duration: 3,
+        }, '<', 'oldmanExit').from("#foreground3right", {
+          blur: 1,
+          x: screenWidth,
+          duration: 4,
+        }, 'foreGround3Exit-=4', 'foreGround3RightEnter').from("#foreground3rightMobile", {
+          blur: 1,
+          x: screenWidth,
+          duration: 4,
+        }, 'foreGround3Exit-=4', 'foreGround3RightEnter').from("#intro-text3-2", {
+          opacity: 0,
+          y: -screenHeight,
+          duration: 2,
+        }, 'foreGround3RightEnter-=1', 'introTextThree3Enter').to("#foreground3right", {
+          x: -screenWidth,
+          duration: 4,
+        }, 'foreGround3RightEnter+=4', 'foreGround3RightExit').to("#foreground3rightMobile", {
+          scale: 3,
+          x: -screenWidth,
+          duration: 4,
+        }, 'foreGround3RightEnter+=4', 'foreGround3RightExit').to("#intro-text3-2", {
+          x: -screenWidth,
+          blur: 3,
+          opacity: 0,
+          duration: 3,
+        }, 'foreGround3RightExit-=4', 'introTextThree3-2Exit').from("#wall", {
+          opacity: 0,
+          blur: 3,
+          x: screenWidth,
+          duration: 4,
+        }, 'foreGround3RightExit-=4', 'wallEnter').from("#our-story-end", {
+          opacity: 0,
+          y: -screenHeight,
+          duration: 6,
+        }, 'wallEnter');
+        ScrollTrigger.create({
+          trigger: '#story',
+          animation: tl,
+          pin: true,
+          start: 'top top',
+          end: '+=11000 bottom',
+          scrub: 2,
+          markers: false,
+        });
+      });
+    </script>
+    <!--<script>
+      var pause = document.querySelector(".pause");
+      var audio = document.querySelector(".audio");
+      $(document).ready(function() {
+        $(".audio").play;
+      });
+
+      function togglePlay() {
+        if (audio.paused) {
+          audio.play();
+          pause.innerHTML = ' < img src = "/assets/img/mute-unmute.gif"
+          alt = ""
+          class = "w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" > ';
+        } else {
+          audio.pause();
+          pause.innerHTML = ' < img src = "/assets/img/mute-only.gif"
+          alt = ""
+          class = "w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" > ';
+        }
+      }
+    </script>-->
+    <div class="relative z-50 bg-white" id="aboutFoundingDay">
+      <img src="assets/img/arrow-up-white.svg" alt="" id="scrollUp" onclick="goTop()" class="w-auto h-12 bg-fdBrown fixed bottom-10 right-5 cursor-pointer z-50 rounded-full shadow-md">
+      <div class="pb-12 overflow-hidden bg-center bg-no-repeat bg-cover lg:h-screen" id="home-second-sec">
+        <div class="flex flex-col mx-auto mb-12 lg:flex-row lg:items-center lg:h-screen lg:pt-12 md:pt-0">
+          <div class="h-full lg:basis-3/6">
+            <div class="h-[400px] w-[400px] my-12 relative lg:hidden bg-contain bg-left bg-no-repeat">
+              <!--<video class="h-[388px] w-[248px] relative right-0 top-[10px] object-cover object-top z-10" autoplay="" muted="" loop="" playsinline="" poster="/assets/img/video-alt.png" style="opacity: 0.8209;">
+                <source src="assets/flag-video-1.mp4">
+                <img src="assets/img/video-alt.png" alt="" class="object-cover object-bottom">
+              </video>-->
+              <img src="https://www.foundingday.sa/assets/g10458.png" alt="" class="absolute top-0 right-0 z-10 w-full h-full">
+            </div>
+            <div class="h-[610px] w-[400px] my-12 relative hidden lg:block bg-cover bg-left bg-no-repeat bg-fixed">
+              <!--<video class="h-[600px] w-[399px] relative right-0 top-0 object-cover object-center z-10" autoplay="" muted="" loop="" playsinline="" poster="/assets/img/video-alt.png" style="opacity: 0.8209;">
+                <source src="assets/flag-video-1.mp4">
+              </video>-->
+              <img src="https://www.foundingday.sa/assets/g10458.png" alt="" class="absolute top-0 right-0 z-10 h-[400px] w-[400px]">
+            </div>
+          </div>
+          <div class="flex flex-col space-y-12 bg-white lg:basis-4/6">
+            <h1 class="text-3xl font-bold text-center lg:text-6xl text-fdBrown lg:text-right">المنطقة الشمالية</h1>
+            <p class="px-4 text-2xl text-center text-black lg:text-right lg:px-0 lg:w-5/6">‏المنطقة الشمالية تتميز بتنوع كبير جدا في الأكلات الشعبية، ‏مثل التطماج ، البكيلة المقشوش ،  ومن أهم الأمثلة التي نتفصل  فيها المليحة : من الأكلات التي تشتهر بها المنطقة الشمالية وتسمى (بالمليحي)، وهي تتكون من مكونات طبيعية في بيئة شمال المملكة العربية السعودية، إذ يشتهر سكانها وأهلها بتربية الأغنام والماعز التي يستفاد من لحومها لإعداد وتحضير وجبات الطعام الخاصة بهم.</p>
+            <button onclick="playAudio()" id="objectives-btn" class="px-3 pt-3 pb-1 mx-auto text-white rounded-md cursor-pointer bg-fdBrown w-fit lg:mx-0"> الوصف الصوتي </button>
+		  </div>
+          <div class="hidden basis-1/6 lg:block">
+            <img src="assets/img/frame.png" alt="">
+          </div>
+        </div>
+      </div>
+      <style>
+        header,
+        .home-hero-sec,
+        #ouristory {
+          animation: entrance 1s ease-in-out 0s 1 normal forwards;
+        }
+
+        #unHideStory {
+          animation: entranceBtn 1s ease-in-out 0s 1 normal forwards;
+        }
+
+        #preloader {
+          margin: auto;
+          position: fixed;
+          z-index: 999;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: #D8C2AC;
+          width: 100%;
+          height: 100%;
+        }
+
+        @keyframes entranceBtn {
+          0% {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes entrance {
+          0% {
+            opacity: 0;
+            transform: translateY(-250px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        body::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        .body {
+          -ms-overflow-style: none !important;
+          scrollbar-width: none !important;
+        }
+
+        .slick-list {
+          overflow: hidden !important;
+        }
+
+        .slick-list::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        .hp-sli.slick-center {
+          filter: grayscale(0) !important;
+        }
+
+        .slick-center::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        .hp-sli.slick-current .rotate-icons {
+          height: 100%;
+          width: 100%;
+          background-position: center;
+          background-size: contain;
+          position: static;
+          transform: rotate(120deg);
+          transition: transform 4s ease-out;
+        }
+
+        [tabindex="-1"] .rotate-icons {
+          transform: rotate(-120deg);
+          transition: all 3s ease-out;
+        }
+
+        /*.hp-sli.slick-center img {
+        height: auto;
+        --tw-brightness: brightness(.75);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+        --tw-saturate: saturate(1.5);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+    }*/
+        .hp-sli.slick-center p {
+          font-size: 50px;
+          line-height: 3rem;
+          height: auto;
+        }
+
+        .slick-track {
+          display: flex;
+          align-items: end;
+        }
+
+        .slick-slider .slick-slide {
+          width: 340px !important;
+        }
+
+        .slick-slider .slick-slide .slide-content {
+          height: 500px;
+          width: 280px;
+        }
+
+        .slick-slider .slick-slide .slide-content img {
+          transform-origin: 50% 100%;
+          object-fit: cover;
+          transform: scale(1);
+          transition: all 3s ease-in;
+        }
+
+        .slick-slider .slick-slide.slick-current .slide-content {
+          height: 600px;
+          width: 300px;
+        }
+
+        .slick-slider .slick-slide.slick-current .slide-content img {
+          height: 480px;
+          transform: scale(1.2);
+          transition: all 4s ease-out;
+        }
+
+        .slick-slider .slick-slide.slick-current .slide-bg {
+          top: 140px;
+          max-height: 460px;
+        }
+      </style>
+    </div>
+    <script>
+      /*let loader = document.getElementById('preloader');
+      window.addEventListener('load', function() {
+        loader.style.display = 'none';
+      })
+      let scrollButton = document.getElementById("scrollUp");
+      window.onscroll = function() {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollButton.style.display = "block";
+        } else {
+          scrollButton.style.display = "none";
+        }
+      }
+		*/
+      function goTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <footer class="bg-fdBrown py-8 px-4 relative z-40">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="flex flex-col items-center justify-between space-y-12 lg:flex-row lg:space-y-0">
+          <div class="text-xl text-center text-white lg:text-right">
+            <h3>التنوع التراثي في المملكة العربية السعودية</h3>
+            <!--<h3 dir="ltr"> 2023 © Saudi Founding Day</h3>-->
+          </div>
+        </div>
+      </div>
+    </footer>
+	
+	<audio id="audioPlayer">
+	  <source src="voices/north.mp3" type="audio/mp3">
+	</audio>
+
+	<script>
+	  function playAudio() {
+		var audio = document.getElementById("audioPlayer");
+		audio.play();
+	  }
+	</script>
+	
+    <script>
+      function openNav() {
+        document.getElementById("mobileMenu").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("mobileMenu").style.width = "0%";
+      }
+    </script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/wavesurfer.js"></script>
+    <script src="js/site.js"></script>
+  </body>
+</html>
